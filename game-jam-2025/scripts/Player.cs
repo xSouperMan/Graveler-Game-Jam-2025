@@ -3,7 +3,7 @@ using System;
 
 public partial class Player : CharacterBody2D
 {
-	private const int TILE_SIZE = 16;
+	[Export] public int TILE_SIZE = 16;
 
 	[Export] public float StepTime = 0.3f;
 
