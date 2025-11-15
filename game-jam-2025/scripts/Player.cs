@@ -214,6 +214,11 @@ public partial class Player : CharacterBody2D
 			return true;
 		}
 
+		if(NpcAt(targetWorldPos))
+		{
+			return false;
+		}
+
 		Vector2 localPos = TileMapLayer.ToLocal(targetWorldPos);
 		Vector2I tileCoords = TileMapLayer.LocalToMap(localPos);
 
@@ -232,5 +237,19 @@ public partial class Player : CharacterBody2D
 			solid = (bool)v;
 		}
 		return !solid;
+	}
+
+	private bool NpcAt(Vector2 targetWorldPos)
+	{
+		var npcs = GetTree().GetNodesInGroup("NPC");
+
+		foreach (Node2D npc in npcs)
+		{
+			if(targetWorldPos.DistanceTo(npc.GlobalPosition) <= 1f)
+			{
+				return true;
+			}
+		}
+		return false;
 	}
 }
