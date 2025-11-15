@@ -1,15 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://d1pm8mt6t7wie"]
+[gd_scene load_steps=3 format=3 uid="uid://d1pm8mt6t7wie"]
 
-[ext_resource type="Script" path="res://scripts/NPC.cs" id="1_6xvi5"]
+[ext_resource type="Script" uid="uid://0eomojwi6we5" path="res://scripts/NPC.cs" id="1_6xvi5"]
 [ext_resource type="Texture2D" uid="uid://dqfrxovajxwa4" path="res://assets/people/pixil-frame-0.png" id="1_mhefn"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_6xvi5"]
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
 script = ExtResource("1_6xvi5")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(8, 8)
 texture = ExtResource("1_mhefn")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_6xvi5")
