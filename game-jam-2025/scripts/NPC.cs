@@ -8,10 +8,4 @@ public partial class NPC : CharacterBody2D
     {
         Data = data;
     }
-
-    public void Interact()
-    {
-        GD.Print($"{Data.FirstName} says: {Data.Dialogue[0][0]}");
-		GD.Print($"{Data.FirstName} says: {Data.Dialogue[0][1]}");
-    }
 }
