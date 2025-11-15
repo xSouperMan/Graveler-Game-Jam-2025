@@ -128,14 +128,19 @@ public partial class Player : CharacterBody2D
 
 	private bool CheckIfInteractable()
 	{
-		//TODO
+
+        if (NpcAt(_startPos + _facingDir * TILE_SIZE))
+        {
+            GD.Print("interaction avaliable");
+			return true;
+        }
 
 		return false;
 	}
 
 	private void HandleInteraction()
 	{
-		//TODO
+		NpcAt(_facingDir);
 	}
 
 	private void StartStep(Vector2 dir)
