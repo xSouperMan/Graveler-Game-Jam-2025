@@ -75,14 +75,12 @@ public partial class Player : CharacterBody2D
 		bool leftJust = Input.IsActionJustPressed("move_left");
 		bool rightJust = Input.IsActionJustPressed("move_right");
 
-		bool interaction = Input.IsActionPressed("interaction");
+		//bool interaction = Input.IsActionPressed("interaction");
 		bool interactionJust = Input.IsActionJustPressed("interaction");
 
-		if((interaction || interactionJust) && CheckIfInteractable())
+		if(interactionJust)
 		{
-			{
-				HandleInteraction();
-			}
+			HandleInteraction();
 		}
 
 
@@ -129,18 +127,30 @@ public partial class Player : CharacterBody2D
 	private bool CheckIfInteractable()
 	{
 
-        if (NpcAt(_startPos + _facingDir * TILE_SIZE))
-        {
-            GD.Print("interaction avaliable");
-			return true;
-        }
-
 		return false;
 	}
 
 	private void HandleInteraction()
 	{
-		NpcAt(_facingDir);
+		Vector2 NPCpos = _startPos + _facingDir * TILE_SIZE;
+		if (NpcAt(NPCpos))
+        {
+            GD.Print("interaction avaliable");
+
+			var npcs = GetTree().GetNodesInGroup("NPC");
+
+			foreach (Node2D npcNode in npcs)
+			{
+				if (npcNode is NPC npc)
+				{
+					if (NPCpos.DistanceTo(npc.GlobalPosition) <= 1f)
+					{
+						GD.Print("Found NPC: " + npc.Data.FirstName);
+					}
+				}
+				GD.Print("something went wrong");
+			}
+        }
 	}
 
 	private void StartStep(Vector2 dir)
