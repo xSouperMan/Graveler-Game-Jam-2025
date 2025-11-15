@@ -1,14 +1,14 @@
 [gd_scene load_steps=16 format=4 uid="uid://vgmn2wdrkaav"]
 
 [ext_resource type="PackedScene" uid="uid://4dj64hgycw1o" path="res://scenes/Player.tscn" id="1_5hauk"]
-[ext_resource type="Script" path="res://scenes/Map.cs" id="1_ii6k2"]
+[ext_resource type="Script" uid="uid://b1k075qxi6rx5" path="res://scenes/Map.cs" id="1_ii6k2"]
 [ext_resource type="Texture2D" uid="uid://cxgwwgibchfpm" path="res://assets/terrain/Street.png" id="2_lajc7"]
 [ext_resource type="PackedScene" uid="uid://d1pm8mt6t7wie" path="res://scenes/NPC.tscn" id="2_xkm8s"]
 [ext_resource type="Texture2D" uid="uid://cs0dnvm8jic58" path="res://assets/terrain/Environment_Tiles.png" id="3_inly4"]
 [ext_resource type="Script" uid="uid://6ld4xf1fj3ks" path="res://scripts/NPCManager.cs" id="3_tm3qm"]
 [ext_resource type="Texture2D" uid="uid://h7dd2sb1rce3" path="res://assets/objects/home_inside.png" id="3_xkm8s"]
 [ext_resource type="PackedScene" uid="uid://nrpfy1f2c8xl" path="res://scenes/Teleporter.tscn" id="6_41ykk"]
-[ext_resource type="PackedScene" path="res://scenes/NPC_Location.tscn" id="8_7ctrk"]
+[ext_resource type="PackedScene" uid="uid://bys3hwbp6omru" path="res://scenes/NPC_Location.tscn" id="8_7ctrk"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tm3qm"]
 texture = ExtResource("3_xkm8s")
