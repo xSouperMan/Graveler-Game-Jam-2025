@@ -1,13 +1,14 @@
-[gd_scene load_steps=15 format=4 uid="uid://vgmn2wdrkaav"]
+[gd_scene load_steps=16 format=4 uid="uid://vgmn2wdrkaav"]
 
 [ext_resource type="PackedScene" uid="uid://4dj64hgycw1o" path="res://scenes/Player.tscn" id="1_5hauk"]
+[ext_resource type="Script" uid="uid://b1k075qxi6rx5" path="res://scenes/Map.cs" id="1_ii6k2"]
 [ext_resource type="Texture2D" uid="uid://cxgwwgibchfpm" path="res://assets/terrain/Street.png" id="2_lajc7"]
 [ext_resource type="PackedScene" uid="uid://d1pm8mt6t7wie" path="res://scenes/NPC.tscn" id="2_xkm8s"]
 [ext_resource type="Texture2D" uid="uid://cs0dnvm8jic58" path="res://assets/terrain/Environment_Tiles.png" id="3_inly4"]
 [ext_resource type="Script" uid="uid://6ld4xf1fj3ks" path="res://scripts/NPCManager.cs" id="3_tm3qm"]
 [ext_resource type="Texture2D" uid="uid://h7dd2sb1rce3" path="res://assets/objects/home_inside.png" id="3_xkm8s"]
 [ext_resource type="PackedScene" uid="uid://nrpfy1f2c8xl" path="res://scenes/Teleporter.tscn" id="6_41ykk"]
-[ext_resource type="PackedScene" path="res://scenes/NPC_Location.tscn" id="8_7ctrk"]
+[ext_resource type="PackedScene" uid="uid://bys3hwbp6omru" path="res://scenes/NPC_Location.tscn" id="8_7ctrk"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tm3qm"]
 texture = ExtResource("3_xkm8s")
@@ -485,12 +486,11 @@ custom_data_layer_0/type = 1
 sources/0 = SubResource("TileSetAtlasSource_ii6k2")
 
 [node name="World" type="Node2D"]
+script = ExtResource("1_ii6k2")
 
-[node name="Player" parent="." node_paths=PackedStringArray("TileMapLayer1", "TileMapLayer2") instance=ExtResource("1_5hauk")]
+[node name="Player" parent="." instance=ExtResource("1_5hauk")]
 z_index = 50
 position = Vector2(-4528, -96)
-TileMapLayer1 = NodePath("../TileMapLayers/TileMapLayer")
-TileMapLayer2 = NodePath("../TileMapLayers/TileMapLayer2")
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 offset = Vector2(8, 8)
@@ -547,3 +547,23 @@ tile_set = SubResource("TileSet_tm3qm")
 z_index = 1
 tile_map_data = PackedByteArray("AAD7//n/AAAAAAEAAAD8//j/AAAAAAEAAAAAAPn/AAAAAAEAAAABAPj/AAAAAAEAAAD9//j/AAACAAAAAAD+//n/AAACAAAAAAADAPn/AAACAAAAAAACAPj/AAACAAAAAAA=")
 tile_set = SubResource("TileSet_46d0c")
+
+[node name="DayTimer" type="Timer" parent="."]
+wait_time = 300.0
+one_shot = true
+autostart = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="TimeLabel" type="Label" parent="CanvasLayer"]
+z_index = 100
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -32.0
+offset_bottom = 23.0
+grow_horizontal = 0
+text = "0:00"
+horizontal_alignment = 1
+
+[connection signal="timeout" from="DayTimer" to="." method="_on_timer_timeout"]
