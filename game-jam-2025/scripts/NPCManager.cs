@@ -8,7 +8,7 @@ public partial class NPCManager : Node
 
     //pool for random NPC attributes and dialogue options
 
-    private string[] firstNames = { "Philip", "Anna", "Karl", "Lena", "Mark", "Sophia", "Luiz", "David", "Sofja", "Francois", "Igritt", "Ying"};
+    private string[] firstNames = { "Philip", "Anna", "Karl", "Lena", "Hans", "Sophia", "Luiz", "David", "Sofja", "Francois", "Igritt", "Ying"};
     private string[] lastNames = { "Müller", "Fischer", "Schmidt", "Klein", "Bauer", "De La Cruz", "Rodriguez", "O'Connor", "Kowalski", "Nguyen", "Smith", "Han"};
 
     private string[] occupations = { "Merchant", "Guard", "Student", "Farmer", "Teacher", "Union leader", "Conspiracy theorist", "Priest", "Preacher"};
@@ -120,7 +120,8 @@ public partial class NPCManager : Node
             npcNode.Initialize(NPClist[i]);
 
             // Place NPC in the world (auto-spaced)
-            npcNode.GlobalPosition = new Vector2(rand.Next(-8,8), rand.Next(-8,8)) * tile;
+            Vector2 positionVector = new Vector2(rand.Next(-8,8), rand.Next(-8,8)) * tile;
+            npcNode.GlobalPosition = positionVector.Snapped(Vector2.One * tile);
 
             // Add to scene tree
             AddChild(npcNode);
