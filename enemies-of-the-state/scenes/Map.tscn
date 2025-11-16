@@ -1,7 +1,7 @@
-[gd_scene load_steps=21 format=4 uid="uid://vgmn2wdrkaav"]
+[gd_scene load_steps=22 format=4 uid="uid://vgmn2wdrkaav"]
 
 [ext_resource type="PackedScene" uid="uid://4dj64hgycw1o" path="res://scenes/Player.tscn" id="1_5hauk"]
-[ext_resource type="Script" uid="uid://b1k075qxi6rx5" path="res://scenes/Map.cs" id="1_ii6k2"]
+[ext_resource type="Script" path="res://scenes/Map.cs" id="1_ii6k2"]
 [ext_resource type="Texture2D" uid="uid://cxgwwgibchfpm" path="res://assets/terrain/Street.png" id="2_lajc7"]
 [ext_resource type="PackedScene" uid="uid://d1pm8mt6t7wie" path="res://scenes/NPC.tscn" id="2_xkm8s"]
 [ext_resource type="Texture2D" uid="uid://d0yhooaknu84l" path="res://assets/objects/paper.png" id="3_46d0c"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://x18lfibvc02k" path="res://assets/objects/ID.png" id="4_hit12"]
 [ext_resource type="Texture2D" uid="uid://bifobiktxh8uk" path="res://assets/objects/IDBackground.png" id="5_sdw7q"]
 [ext_resource type="PackedScene" uid="uid://nrpfy1f2c8xl" path="res://scenes/Teleporter.tscn" id="6_41ykk"]
+[ext_resource type="Script" uid="uid://2gu4vr33m5qd" path="res://scripts/InteractionUi.cs" id="6_pgwcf"]
 [ext_resource type="PackedScene" uid="uid://bys3hwbp6omru" path="res://scenes/NPC_Location.tscn" id="8_7ctrk"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tm3qm"]
@@ -673,154 +674,7 @@ offset_right = 78.0
 offset_bottom = 27.0
 text = "[Q]"
 
-[node name="IDCard" type="TextureRect" parent="CanvasLayer2/UIRoot"]
-visible = false
-texture_filter = 1
-layout_mode = 0
-offset_left = 42.0
-offset_top = 364.0
-offset_right = 425.99945
-offset_bottom = 620.0001
-scale = Vector2(0.79, 0.79)
-texture = ExtResource("5_sdw7q")
-
-[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer2/UIRoot/IDCard"]
-layout_mode = 0
-offset_left = 9.964289
-offset_top = 39.767838
-offset_right = 69.44429
-offset_bottom = 66.467834
-theme_override_font_sizes/normal_font_size = 13
-text = "NAME"
-
-[node name="name" type="RichTextLabel" parent="CanvasLayer2/UIRoot/IDCard"]
-layout_mode = 0
-offset_left = 138.53572
-offset_top = 39.767834
-offset_right = 298.95572
-offset_bottom = 66.63783
-theme_override_colors/default_color = Color(0.00011382803, 0.00011382803, 0.00011382803, 1)
-theme_override_font_sizes/normal_font_size = 13
-
-[node name="familyname" type="RichTextLabel" parent="CanvasLayer2/UIRoot/IDCard"]
-layout_mode = 0
-offset_left = 138.53572
-offset_top = 64.7679
-offset_right = 298.95572
-offset_bottom = 91.63789
-theme_override_colors/default_color = Color(0.00011382803, 0.00011382803, 0.00011382803, 1)
-theme_override_font_sizes/normal_font_size = 13
-
-[node name="occupation" type="RichTextLabel" parent="CanvasLayer2/UIRoot/IDCard"]
-layout_mode = 0
-offset_left = 138.53572
-offset_top = 89.7679
-offset_right = 298.95572
-offset_bottom = 116.63789
-theme_override_colors/default_color = Color(0.00011382803, 0.00011382803, 0.00011382803, 1)
-theme_override_font_sizes/normal_font_size = 13
-
-[node name="address" type="RichTextLabel" parent="CanvasLayer2/UIRoot/IDCard"]
-layout_mode = 0
-offset_left = 138.53572
-offset_top = 114.767944
-offset_right = 371.08572
-offset_bottom = 141.63794
-theme_override_colors/default_color = Color(0.00011382803, 0.00011382803, 0.00011382803, 1)
-theme_override_font_sizes/normal_font_size = 13
-
-[node name="criminalrecord" type="RichTextLabel" parent="CanvasLayer2/UIRoot/IDCard"]
-layout_mode = 0
-offset_left = 138.53572
-offset_top = 139.76794
-offset_right = 371.08572
-offset_bottom = 166.63794
-theme_override_colors/default_color = Color(0.00011382803, 0.00011382803, 0.00011382803, 1)
-theme_override_font_sizes/normal_font_size = 13
-
-[node name="age" type="RichTextLabel" parent="CanvasLayer2/UIRoot/IDCard"]
-layout_mode = 0
-offset_left = 138.53572
-offset_top = 164.76794
-offset_right = 371.08572
-offset_bottom = 191.63794
-theme_override_colors/default_color = Color(0.00011382803, 0.00011382803, 0.00011382803, 1)
-theme_override_font_sizes/normal_font_size = 13
-
-[node name="expirationdate" type="RichTextLabel" parent="CanvasLayer2/UIRoot/IDCard"]
-layout_mode = 0
-offset_left = 138.53572
-offset_top = 230.83936
-offset_right = 371.08572
-offset_bottom = 257.70935
-theme_override_colors/default_color = Color(0.00011382803, 0.00011382803, 0.00011382803, 1)
-theme_override_font_sizes/normal_font_size = 13
-
-[node name="RichTextLabel2" type="RichTextLabel" parent="CanvasLayer2/UIRoot/IDCard"]
-layout_mode = 0
-offset_left = 8.178575
-offset_top = 64.76784
-offset_right = 100.26857
-offset_bottom = 104.76784
-theme_override_font_sizes/normal_font_size = 13
-text = "FAMILY NAME"
-
-[node name="RichTextLabel3" type="RichTextLabel" parent="CanvasLayer2/UIRoot/IDCard"]
-layout_mode = 0
-offset_left = 8.178575
-offset_top = 89.76784
-offset_right = 100.26857
-offset_bottom = 129.76784
-theme_override_font_sizes/normal_font_size = 13
-text = "OCCUPATION"
-
-[node name="RichTextLabel4" type="RichTextLabel" parent="CanvasLayer2/UIRoot/IDCard"]
-layout_mode = 0
-offset_left = 8.178575
-offset_top = 114.76784
-offset_right = 100.26857
-offset_bottom = 154.76784
-theme_override_font_sizes/normal_font_size = 13
-text = "ADDRESS"
-
-[node name="RichTextLabel5" type="RichTextLabel" parent="CanvasLayer2/UIRoot/IDCard"]
-layout_mode = 0
-offset_left = 8.178575
-offset_top = 139.76784
-offset_right = 128.66858
-offset_bottom = 179.76784
-theme_override_font_sizes/normal_font_size = 13
-text = "CRIMINAL RECORD"
-
-[node name="RichTextLabel7" type="RichTextLabel" parent="CanvasLayer2/UIRoot/IDCard"]
-layout_mode = 0
-offset_left = 8.178575
-offset_top = 164.76784
-offset_right = 128.66858
-offset_bottom = 204.76784
-theme_override_font_sizes/normal_font_size = 13
-text = "AGE"
-
-[node name="RichTextLabel6" type="RichTextLabel" parent="CanvasLayer2/UIRoot/IDCard"]
-layout_mode = 0
-offset_left = 8.178575
-offset_top = 230.83926
-offset_right = 128.66858
-offset_bottom = 270.83926
-theme_override_font_sizes/normal_font_size = 13
-text = "EXPIRATION DATE"
-
-[node name="RichTextLabel8" type="RichTextLabel" parent="CanvasLayer2/UIRoot/IDCard"]
-layout_mode = 0
-offset_left = 295.6786
-offset_top = 239.76784
-offset_right = 381.4886
-offset_bottom = 262.46783
-theme_override_colors/default_color = Color(0.8668296, 0.86682963, 0.86682963, 1)
-theme_override_font_sizes/normal_font_size = 10
-text = "Press [Q] to close"
-
-[node name="InteractionUI" type="ColorRect" parent="CanvasLayer2/UIRoot"]
+[node name="InteractionUI" type="ColorRect" parent="CanvasLayer2/UIRoot" node_paths=PackedStringArray("Deport", "ComingBack", "NoDeport", "player", "id")]
 visible = false
 layout_mode = 0
 offset_left = 385.0
@@ -828,6 +682,12 @@ offset_top = 150.0
 offset_right = 737.0
 offset_bottom = 566.0
 color = Color(0.3764706, 0.3764706, 0.3764706, 0.38431373)
+script = ExtResource("6_pgwcf")
+Deport = NodePath("deport")
+ComingBack = NodePath("comebacklater")
+NoDeport = NodePath("nodeport")
+player = NodePath("../../../Player")
+id = NodePath("../ID")
 
 [node name="deport" type="Button" parent="CanvasLayer2/UIRoot/InteractionUI"]
 layout_mode = 0
@@ -853,22 +713,169 @@ offset_right = 319.0
 offset_bottom = 332.0
 text = "Don't deport"
 
-[node name="Player" parent="." node_paths=PackedStringArray("TileMapLayer1", "TileMapLayer2", "Paper", "Mail", "IDCard", "ID", "FirstName", "FamilyName", "Occupation", "Adress", "CriminalRecord", "Age", "ExpirationDate", "InteractionUI") instance=ExtResource("1_5hauk")]
+[node name="IDCard" type="TextureRect" parent="CanvasLayer2/UIRoot/InteractionUI"]
+z_index = 1
+texture_filter = 1
+layout_mode = 0
+offset_left = 24.00003
+offset_top = 38.0
+offset_right = 407.9995
+offset_bottom = 294.00012
+scale = Vector2(0.79, 0.79)
+texture = ExtResource("5_sdw7q")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer2/UIRoot/InteractionUI/IDCard"]
+layout_mode = 0
+offset_left = 9.964289
+offset_top = 39.767838
+offset_right = 69.44429
+offset_bottom = 66.467834
+theme_override_font_sizes/normal_font_size = 13
+text = "NAME"
+
+[node name="name" type="RichTextLabel" parent="CanvasLayer2/UIRoot/InteractionUI/IDCard"]
+layout_mode = 0
+offset_left = 138.53572
+offset_top = 39.767834
+offset_right = 298.95572
+offset_bottom = 66.63783
+theme_override_colors/default_color = Color(0.00011382803, 0.00011382803, 0.00011382803, 1)
+theme_override_font_sizes/normal_font_size = 13
+
+[node name="familyname" type="RichTextLabel" parent="CanvasLayer2/UIRoot/InteractionUI/IDCard"]
+layout_mode = 0
+offset_left = 138.53572
+offset_top = 64.7679
+offset_right = 298.95572
+offset_bottom = 91.63789
+theme_override_colors/default_color = Color(0.00011382803, 0.00011382803, 0.00011382803, 1)
+theme_override_font_sizes/normal_font_size = 13
+
+[node name="occupation" type="RichTextLabel" parent="CanvasLayer2/UIRoot/InteractionUI/IDCard"]
+layout_mode = 0
+offset_left = 138.53572
+offset_top = 89.7679
+offset_right = 298.95572
+offset_bottom = 116.63789
+theme_override_colors/default_color = Color(0.00011382803, 0.00011382803, 0.00011382803, 1)
+theme_override_font_sizes/normal_font_size = 13
+
+[node name="address" type="RichTextLabel" parent="CanvasLayer2/UIRoot/InteractionUI/IDCard"]
+layout_mode = 0
+offset_left = 138.53572
+offset_top = 114.767944
+offset_right = 371.08572
+offset_bottom = 141.63794
+theme_override_colors/default_color = Color(0.00011382803, 0.00011382803, 0.00011382803, 1)
+theme_override_font_sizes/normal_font_size = 13
+
+[node name="criminalrecord" type="RichTextLabel" parent="CanvasLayer2/UIRoot/InteractionUI/IDCard"]
+layout_mode = 0
+offset_left = 138.53572
+offset_top = 139.76794
+offset_right = 371.08572
+offset_bottom = 166.63794
+theme_override_colors/default_color = Color(0.00011382803, 0.00011382803, 0.00011382803, 1)
+theme_override_font_sizes/normal_font_size = 13
+
+[node name="age" type="RichTextLabel" parent="CanvasLayer2/UIRoot/InteractionUI/IDCard"]
+layout_mode = 0
+offset_left = 138.53572
+offset_top = 164.76794
+offset_right = 371.08572
+offset_bottom = 191.63794
+theme_override_colors/default_color = Color(0.00011382803, 0.00011382803, 0.00011382803, 1)
+theme_override_font_sizes/normal_font_size = 13
+
+[node name="expirationdate" type="RichTextLabel" parent="CanvasLayer2/UIRoot/InteractionUI/IDCard"]
+layout_mode = 0
+offset_left = 138.53572
+offset_top = 230.83936
+offset_right = 371.08572
+offset_bottom = 257.70935
+theme_override_colors/default_color = Color(0.00011382803, 0.00011382803, 0.00011382803, 1)
+theme_override_font_sizes/normal_font_size = 13
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="CanvasLayer2/UIRoot/InteractionUI/IDCard"]
+layout_mode = 0
+offset_left = 8.178575
+offset_top = 64.76784
+offset_right = 100.26857
+offset_bottom = 104.76784
+theme_override_font_sizes/normal_font_size = 13
+text = "FAMILY NAME"
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="CanvasLayer2/UIRoot/InteractionUI/IDCard"]
+layout_mode = 0
+offset_left = 8.178575
+offset_top = 89.76784
+offset_right = 100.26857
+offset_bottom = 129.76784
+theme_override_font_sizes/normal_font_size = 13
+text = "OCCUPATION"
+
+[node name="RichTextLabel4" type="RichTextLabel" parent="CanvasLayer2/UIRoot/InteractionUI/IDCard"]
+layout_mode = 0
+offset_left = 8.178575
+offset_top = 114.76784
+offset_right = 100.26857
+offset_bottom = 154.76784
+theme_override_font_sizes/normal_font_size = 13
+text = "ADDRESS"
+
+[node name="RichTextLabel5" type="RichTextLabel" parent="CanvasLayer2/UIRoot/InteractionUI/IDCard"]
+layout_mode = 0
+offset_left = 8.178575
+offset_top = 139.76784
+offset_right = 128.66858
+offset_bottom = 179.76784
+theme_override_font_sizes/normal_font_size = 13
+text = "CRIMINAL RECORD"
+
+[node name="RichTextLabel7" type="RichTextLabel" parent="CanvasLayer2/UIRoot/InteractionUI/IDCard"]
+layout_mode = 0
+offset_left = 8.178575
+offset_top = 164.76784
+offset_right = 128.66858
+offset_bottom = 204.76784
+theme_override_font_sizes/normal_font_size = 13
+text = "AGE"
+
+[node name="RichTextLabel6" type="RichTextLabel" parent="CanvasLayer2/UIRoot/InteractionUI/IDCard"]
+layout_mode = 0
+offset_left = 8.178575
+offset_top = 230.83926
+offset_right = 128.66858
+offset_bottom = 270.83926
+theme_override_font_sizes/normal_font_size = 13
+text = "EXPIRATION DATE"
+
+[node name="RichTextLabel8" type="RichTextLabel" parent="CanvasLayer2/UIRoot/InteractionUI/IDCard"]
+layout_mode = 0
+offset_left = 295.6786
+offset_top = 239.76784
+offset_right = 381.4886
+offset_bottom = 262.46783
+theme_override_colors/default_color = Color(0.8668296, 0.86682963, 0.86682963, 1)
+theme_override_font_sizes/normal_font_size = 10
+text = "Press [Q] to close"
+
+[node name="Player" parent="." node_paths=PackedStringArray("TileMapLayer1", "TileMapLayer2", "Paper", "Mail", "ID", "FirstName", "FamilyName", "Occupation", "Adress", "CriminalRecord", "Age", "ExpirationDate", "InteractionUI") instance=ExtResource("1_5hauk")]
 z_index = 50
 position = Vector2(-4528, -96)
+Quota = 3
 TileMapLayer1 = NodePath("../TileMapLayers/TileMapLayer")
 TileMapLayer2 = NodePath("../TileMapLayers/TileMapLayer2")
 Paper = NodePath("../CanvasLayer2/UIRoot/Paper")
 Mail = NodePath("../CanvasLayer2/UIRoot/Mail")
-IDCard = NodePath("../CanvasLayer2/UIRoot/IDCard")
 ID = NodePath("../CanvasLayer2/UIRoot/ID")
-FirstName = NodePath("../CanvasLayer2/UIRoot/IDCard/name")
-FamilyName = NodePath("../CanvasLayer2/UIRoot/IDCard/familyname")
-Occupation = NodePath("../CanvasLayer2/UIRoot/IDCard/occupation")
-Adress = NodePath("../CanvasLayer2/UIRoot/IDCard/address")
-CriminalRecord = NodePath("../CanvasLayer2/UIRoot/IDCard/criminalrecord")
-Age = NodePath("../CanvasLayer2/UIRoot/IDCard/age")
-ExpirationDate = NodePath("../CanvasLayer2/UIRoot/IDCard/expirationdate")
+FirstName = NodePath("../CanvasLayer2/UIRoot/InteractionUI/IDCard/name")
+FamilyName = NodePath("../CanvasLayer2/UIRoot/InteractionUI/IDCard/familyname")
+Occupation = NodePath("../CanvasLayer2/UIRoot/InteractionUI/IDCard/occupation")
+Adress = NodePath("../CanvasLayer2/UIRoot/InteractionUI/IDCard/address")
+CriminalRecord = NodePath("../CanvasLayer2/UIRoot/InteractionUI/IDCard/criminalrecord")
+Age = NodePath("../CanvasLayer2/UIRoot/InteractionUI/IDCard/age")
+ExpirationDate = NodePath("../CanvasLayer2/UIRoot/InteractionUI/IDCard/expirationdate")
 InteractionUI = NodePath("../CanvasLayer2/UIRoot/InteractionUI")
 
 [node name="Camera2D" type="Camera2D" parent="Player"]

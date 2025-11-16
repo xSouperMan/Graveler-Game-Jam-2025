@@ -1,3 +1,4 @@
+using System;
 using System.Security.AccessControl;
 using Godot;
 
@@ -8,7 +9,7 @@ public partial class NPC : CharacterBody2D
 	public NPCData Data { get; private set; }
 	private Direction dir;
 	private AnimationPlayer anim;
-	private TextureRect dialogBubble;
+	private Control dialogBubble;
 	private Label dialogLabel;
 
 	public void Initialize(NPCData data, Vector2 globalPosition)
@@ -19,6 +20,7 @@ public partial class NPC : CharacterBody2D
 		anim.Play("idle_down");
 		GlobalPosition = globalPosition;
 		GD.Print(GlobalPosition);
+		dialogBubble = GetNode<Control>("Bubble");
 		//dialogBubble.Visible = false;
 	}
 
@@ -87,13 +89,23 @@ public partial class NPC : CharacterBody2D
 
 	public void PlayerArrest()
 	{
-		GD.Print($"{Data.FirstName}: {Data.ArrestResponse}");
+		HideBubble();
 		state = InteractionState.Finished;
+		ShowBubble(Data.ArrestResponse);
+		//TODO VERPISS DICH
 	}
 
 	public void PlayerNotArrest()
 	{
-		GD.Print($"{Data.FirstName}: {Data.NotArrestResponse}");
+		HideBubble();
 		state = InteractionState.Finished;
+		ShowBubble(Data.NotArrestResponse);
 	}
+
+    internal void PlayerMightComeBack()
+    {
+		HideBubble();
+		state = InteractionState.Finished;
+		ShowBubble(Data.MightComeBackResponse);
+    }
 }

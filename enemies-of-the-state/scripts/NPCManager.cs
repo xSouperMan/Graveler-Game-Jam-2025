@@ -42,6 +42,16 @@ public partial class NPCManager : Node
         "Long live Libertaria"
 	};
 
+	private string[] mightComeBackResponses =
+    {
+        "See you around.",
+		"Allright.",
+		"Get Lost.",
+		"Have a good day.",
+		"No need for that.",
+		"Take care."
+    };
+
 	private NPCData generateRandomNPC()
 	{
 		var rand = new Random();
@@ -59,6 +69,7 @@ public partial class NPCManager : Node
 		string greeting = greetings[rand.Next(greetings.Length)];
 		string arrestResponse = arrestResponses[rand.Next(arrestResponses.Length)];
 		string notArrestResponse = notArrestResponses[rand.Next(notArrestResponses.Length)];
+		string mightComeBackResponse = mightComeBackResponses[rand.Next(mightComeBackResponses.Length)];
 
 		int randomCrimRec = rand.Next(1,6);
 		bool criminalRecord = randomCrimRec == 1;
@@ -73,6 +84,7 @@ public partial class NPCManager : Node
 			greeting,
 			arrestResponse,
 			notArrestResponse,
+			mightComeBackResponse,
 			criminalRecord
 		);
 	}

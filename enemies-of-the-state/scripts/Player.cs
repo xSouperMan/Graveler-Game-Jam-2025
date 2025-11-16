@@ -5,11 +5,12 @@ public partial class Player : CharacterBody2D
 {
 	[Export] public int TILE_SIZE = 16;
 	[Export] public float StepTime = 0.3f;
+	[Export] public int Quota;
+	[Export] public int DeportedCount;
 	[Export] public TileMapLayer TileMapLayer1;
 	[Export] public TileMapLayer TileMapLayer2;
 	[Export] public TextureRect Paper;
 	[Export] public TextureRect Mail;
-	[Export] public TextureRect IDCard;
 	[Export] public TextureRect ID;
 	[Export] public RichTextLabel FirstName;
 	[Export] public RichTextLabel FamilyName;
@@ -18,7 +19,7 @@ public partial class Player : CharacterBody2D
 	[Export] public RichTextLabel CriminalRecord;
 	[Export] public RichTextLabel Age;
 	[Export] public RichTextLabel ExpirationDate;
-	[Export] public ColorRect InteractionUI;
+	[Export] public InteractionUi InteractionUI;
 
 	private bool _isMoving;
 	private Vector2 _startPos;
@@ -122,7 +123,7 @@ public partial class Player : CharacterBody2D
 
 		if(qPressed)
 		{
-			if(!IDCard.Visible)
+			if(!InteractionUI.Visible)
 			{
 				var npc = GetNpcAt(GlobalPosition + _facingDir*TILE_SIZE);
 				if(npc != null)
@@ -137,13 +138,12 @@ public partial class Player : CharacterBody2D
 					ExpirationDate.Text = data.IdExpirationDate;
 
 					ID.Visible = false;
-					IDCard.Visible = true;
 					InteractionUI.Visible = true;
+					InteractionUI.npc = npc;
 				}
 			} else
 			{
 				ID.Visible = true;
-				IDCard.Visible = false;
 				InteractionUI.Visible = false;
 			}
 		}
@@ -194,7 +194,7 @@ public partial class Player : CharacterBody2D
 
 	private bool CheckCanMove()
 	{
-		if(IDCard.Visible)
+		if(InteractionUI.Visible)
 		{
 			return false;
 		}

@@ -12,6 +12,7 @@ public class NPCData
     public string Greeting { get;}
     public string ArrestResponse {get;}
     public string NotArrestResponse {get;}
+    public string MightComeBackResponse {get;}
     public bool CriminalRecord {get;}
 
     public NPCData(
@@ -24,6 +25,7 @@ public class NPCData
         string greeting,
         string arrestResponse,
         string notArrestResponse,
+        string mightComeBackResponse,
         bool criminalRecord
         )
     {
@@ -37,6 +39,7 @@ public class NPCData
         ArrestResponse = arrestResponse;
         NotArrestResponse = notArrestResponse;
         CriminalRecord = criminalRecord;
+        MightComeBackResponse = mightComeBackResponse;
     }
 }
 
