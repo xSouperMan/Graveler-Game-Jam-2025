@@ -6,6 +6,7 @@ public partial class Map : Node2D
 	
 	private Timer _dayTimer;
 	private Label _timeLabel;
+	[Export] public Player player;
 
 
 	public override void _Ready()
@@ -55,7 +56,7 @@ public partial class Map : Node2D
 		GD.Print("Der Tag ist zu Ende!");
 		
 		// Verstecke den Timer-Text, wenn die Zeit abgelaufen ist
-		_timeLabel.Text = "Tag vorbei!"; 
+		_timeLabel.Text = "Day over!"; 
 		// Oder: _timeLabel.Hide();
 
 		// Wechsle die Szene
