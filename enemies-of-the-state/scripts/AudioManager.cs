@@ -73,7 +73,7 @@ public partial class AudioManager : Node
         if (!_musicPlayer.Playing)
         {
             _musicPlayer.Stream = musicSound;
-            _musicPlayer.VolumeDb = -14;
+            _musicPlayer.VolumeDb = -16;
             _musicPlayer.Play();
         }
     }

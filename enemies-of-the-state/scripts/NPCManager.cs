@@ -13,6 +13,7 @@ public partial class NPCManager : Node
 	private string[] occupations = { "Merchant", "Guard", "Student", "Farmer", "Teacher", "Union leader", "Conspiracy theorist", "Priest", "Preacher"};
 	private string[] addresses = { "West Gate", "Market Street", "Old Road", "Hauser Street", "Martin Street"};
 	private bool criminalRecord;
+	private Random rand = new Random();
 
 	private string[] greetings = {
 		"Hello!",
@@ -54,7 +55,6 @@ public partial class NPCManager : Node
 
 	private NPCData generateRandomNPC()
 	{
-		var rand = new Random();
 
 		string first = firstNames[rand.Next(firstNames.Length)];
 		string last = lastNames[rand.Next(lastNames.Length)];
@@ -116,7 +116,6 @@ public partial class NPCManager : Node
 
 		for(int i=0; i<NPClist.Count; i++){
 
-			var rand = new Random();
 			var npcInstance = NpcScene.Instantiate();
 
 			NPC npcNode = npcInstance as NPC;
