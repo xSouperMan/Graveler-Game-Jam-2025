@@ -35,6 +35,7 @@ public partial class Map : Node2D
 	private void _OnDayTimerTimeout()
 	{
 		AudioManager.Instance.StopMusic();
+		AudioManager.Instance.PlayGameOver();
 
 		GD.Print("Der Tag ist zu Ende!");
 		

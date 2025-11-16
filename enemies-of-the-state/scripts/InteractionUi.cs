@@ -23,6 +23,8 @@ public partial class InteractionUi : ColorRect
 
 	public void DeportEnemy()
 	{
+		var rand = new Random();
+		AudioManager.Instance.Call("PlaySpeech", rand.Next(0,3));
 		if(npc == null)
 		{
 			return;
@@ -35,6 +37,8 @@ public partial class InteractionUi : ColorRect
 
 	public void NoDeportEnemy()
 	{
+		var rand = new Random();
+		AudioManager.Instance.Call("PlaySpeech", rand.Next(0,3));
 		if(npc == null)
 		{
 			return;
@@ -46,6 +50,8 @@ public partial class InteractionUi : ColorRect
 
 	private void MightComeBack()
 	{
+		var rand = new Random();
+		AudioManager.Instance.Call("PlaySpeech", rand.Next(0,3));
 		if(npc == null)
 		{
 			return;

@@ -53,6 +53,8 @@ public partial class NPC : CharacterBody2D
 		switch (state)
 		{
 			case InteractionState.Greet:
+				var rand = new Random();
+				AudioManager.Instance.Call("PlayGreeting",rand.Next(0,2));
 				GD.Print($"greeted {Data.FirstName}: {Data.Greeting}");
 				ShowBubble(Data.Greeting);
 				state = InteractionState.Await;

@@ -62,6 +62,7 @@ public partial class Player : CharacterBody2D
 		
 		if(ePressed && Mail != null && Paper != null)
 		{
+			AudioManager.Instance.Call("PlayPaper");
 			if(Mail.Visible)
 			{
 				Mail.Visible = false;
@@ -128,6 +129,7 @@ public partial class Player : CharacterBody2D
 
 		if(qPressed)
 		{
+			AudioManager.Instance.Call("PlayIdPlease");
 			if(!InteractionUI.Visible)
 			{
 				var npc = GetNpcAt(GlobalPosition + _facingDir*TILE_SIZE);
@@ -292,6 +294,8 @@ public partial class Player : CharacterBody2D
 						if(tp.teleport_to == null) {
 							return;
 						}
+						var rand = new Random();
+						AudioManager.Instance.Call("PlayDoor",rand.Next(0,2));
 						GD.Print(tp.teleport_to.GlobalPosition);
 						GlobalPosition = tp.teleport_to.GlobalPosition;
 						_isMoving = false;
