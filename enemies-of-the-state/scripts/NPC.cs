@@ -24,26 +24,24 @@ public partial class NPC : CharacterBody2D
 
 	public void Interact(Direction direction)
 	{
-		if(direction!=dir)
+
+		switch(direction)
 		{
-			switch(direction)
-			{
-				case Direction.DOWN:
-					anim.Play("idle_down");
-					break;
+			case Direction.DOWN:
+				anim.Play("idle_down");
+				break;
 
-				case Direction.LEFT:
-					anim.Play("idle_left");
-					break;
+			case Direction.LEFT:
+				anim.Play("idle_left");
+				break;
 
-				case Direction.UP:
-					anim.Play("idle_up");
-					break;
+			case Direction.UP:
+				anim.Play("idle_up");
+				break;
 
-				case Direction.RIGHT:
-					anim.Play("idle_right");
-					break;
-			}
+			case Direction.RIGHT:
+				anim.Play("idle_right");
+				break;
 		}
 		
 		switch (state)

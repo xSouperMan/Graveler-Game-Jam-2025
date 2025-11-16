@@ -3,7 +3,7 @@ using System;
 
 public partial class Bubble : Control
 {
-    [Export] public float Duration = 2.0f; // Sekunden
+    [Export] public float Duration = 5.0f; // Sekunden
     private Label _label;
     private Timer _timer;
 
