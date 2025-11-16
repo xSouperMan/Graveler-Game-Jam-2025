@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://wiwpb250wkne"]
+[gd_scene load_steps=3 format=3 uid="uid://wiwpb250wkne"]
 
-[ext_resource type="Texture2D" uid="uid://dvohly05h1y80" path="res://assets/screens/Failed.png" id="1_esplv"]
+[ext_resource type="FontFile" uid="uid://cjhp2udynov3v" path="res://assets/fonts/PixelifySans-VariableFont_wght.ttf" id="1_ayse4"]
+[ext_resource type="Texture2D" uid="uid://c35qmjfv44itj" path="res://assets/objects/SpeechBubble.png" id="2_7241x"]
 
 [node name="Node2D" type="Node2D"]
 
@@ -17,17 +18,50 @@ grow_horizontal = 2
 grow_vertical = 2
 metadata/_edit_use_anchors_ = true
 
+[node name="Button" type="Button" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_left = 288.0
+offset_top = 456.0
+offset_right = 816.0
+offset_bottom = 584.0
+theme_override_fonts/font = ExtResource("1_ayse4")
+theme_override_font_sizes/font_size = 76
+text = "BACK"
+
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control"]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = -56.72
-offset_right = 384.0
-offset_bottom = 319.28003
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -272.0
+offset_top = -308.0
+offset_right = 224.0
+offset_bottom = 124.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(0.75, 0.75)
-texture = ExtResource("1_esplv")
-stretch_mode = 6
-metadata/_edit_use_anchors_ = true
+texture = ExtResource("2_7241x")
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/TextureRect"]
+layout_mode = 0
+offset_right = 1605.0
+offset_bottom = 431.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_ayse4")
+theme_override_font_sizes/font_size = 22
+text = "Our great nation of Libertaria has been
+ infiltrated long enough by enemies of 
+our values. Religious people, communists, 
+and all kinds of other criminals. 
+But times have changed! The people have
+placed their hope in our hands, and the 
+great leader watches over us with a 
+watchful eye.
+Our task is to search for enemies of the
+nation and imprison them. NO TRIAL NECESSARY! Check their ID and decide accordingly.
+Meet your quotas!
+
+Long live
+Libertaria"
