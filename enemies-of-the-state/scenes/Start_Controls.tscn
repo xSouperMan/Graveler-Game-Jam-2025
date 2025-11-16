@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://q1d8icehpxin"]
+[gd_scene format=3 uid="uid://cb8r22oyd827c"]
 
 [node name="Node2D" type="Node2D"]
 
@@ -14,3 +14,66 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 metadata/_edit_use_anchors_ = true
+
+[node name="Button" type="Button" parent="CanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -264.0
+offset_top = -180.0
+offset_right = 264.0
+offset_bottom = -52.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 76
+text = "BACK"
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="CanvasLayer/Control"]
+layout_direction = 2
+layout_mode = 1
+offset_left = 64.0
+offset_top = 64.0
+offset_right = 384.0
+offset_bottom = 192.0
+theme_override_font_sizes/font_size = 76
+text = "Movement"
+
+[node name="Label2" type="Label" parent="CanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -384.0
+offset_top = 64.0
+offset_right = -64.0
+offset_bottom = 192.0
+grow_horizontal = 0
+theme_override_font_sizes/font_size = 76
+text = "Interactions"
+horizontal_alignment = 2
+
+[node name="Label3" type="Label" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 192.0
+offset_right = 320.0
+offset_bottom = 384.0
+text = "[W]  -  move forewards
+[A]  -  move left
+[S]  -  move backwars
+[D]  -  move right"
+
+[node name="Label4" type="Label" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_left = 832.0
+offset_top = 192.0
+offset_right = 1088.0
+offset_bottom = 384.0
+text = "Open Tasks  -  [E]
+Inspect ID  -  [Q]
+Interact with NPC  -  [SPACE]"
+horizontal_alignment = 2
