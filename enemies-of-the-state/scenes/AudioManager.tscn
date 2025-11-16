@@ -1,12 +1,15 @@
-[gd_scene load_steps=2 format=3 uid="uid://dlnv3extiu56v"]
+[gd_scene load_steps=3 format=3 uid="uid://dlnv3extiu56v"]
 
 [ext_resource type="Script" uid="uid://bm0rvxn6caqy7" path="res://scripts/AudioManager.cs" id="1_hux41"]
+[ext_resource type="AudioStream" uid="uid://ccm8mx5y1h6kp" path="res://assets/sounds/8-bit-march-rem.wav" id="2_v6v0x"]
 
 [node name="AudioManager" type="Node"]
 script = ExtResource("1_hux41")
 
 [node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_v6v0x")
 volume_db = -6.42
+autoplay = true
 
 [node name="FootstepPlayer" type="AudioStreamPlayer" parent="."]
 

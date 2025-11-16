@@ -106,6 +106,7 @@ public partial class Player : CharacterBody2D
 
 	private void HandleInput()
 	{
+
 		Vector2 dir = Vector2.Zero;
 
 		bool up = Input.IsActionPressed("move_up");
@@ -160,6 +161,7 @@ public partial class Player : CharacterBody2D
 			return;
 		}
 		AudioManager.Instance.StartFootsteps();
+
 		if ((up || upJust) && !(down || downJust))
 		{
 			dir = Vector2.Up;
