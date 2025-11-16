@@ -30,7 +30,7 @@ public partial class InteractionUi : ColorRect
 		id.Visible = true;
 		Visible = false;
 		npc.PlayerArrest();
-		player.DeportedCount++;
+		player.inCreaseDeportedCount();
 	}
 
 	public void NoDeportEnemy()

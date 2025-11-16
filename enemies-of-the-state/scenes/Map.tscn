@@ -860,7 +860,16 @@ theme_override_colors/default_color = Color(0.8668296, 0.86682963, 0.86682963, 1
 theme_override_font_sizes/normal_font_size = 10
 text = "Press [Q] to close"
 
-[node name="Player" parent="." node_paths=PackedStringArray("TileMapLayer1", "TileMapLayer2", "Paper", "Mail", "ID", "FirstName", "FamilyName", "Occupation", "Adress", "CriminalRecord", "Age", "ExpirationDate", "InteractionUI") instance=ExtResource("1_5hauk")]
+[node name="DeportedCount" type="Label" parent="CanvasLayer2/UIRoot"]
+layout_mode = 0
+offset_left = 650.0
+offset_top = 29.0
+offset_right = 1150.0044
+offset_bottom = 52.0
+text = "Deported Today: 0"
+horizontal_alignment = 2
+
+[node name="Player" parent="." node_paths=PackedStringArray("TileMapLayer1", "TileMapLayer2", "Paper", "Mail", "ID", "FirstName", "FamilyName", "Occupation", "Adress", "CriminalRecord", "Age", "ExpirationDate", "InteractionUI", "DeportedCountDisplay") instance=ExtResource("1_5hauk")]
 z_index = 50
 position = Vector2(-4528, -96)
 Quota = 3
@@ -877,6 +886,7 @@ CriminalRecord = NodePath("../CanvasLayer2/UIRoot/InteractionUI/IDCard/criminalr
 Age = NodePath("../CanvasLayer2/UIRoot/InteractionUI/IDCard/age")
 ExpirationDate = NodePath("../CanvasLayer2/UIRoot/InteractionUI/IDCard/expirationdate")
 InteractionUI = NodePath("../CanvasLayer2/UIRoot/InteractionUI")
+DeportedCountDisplay = NodePath("../CanvasLayer2/UIRoot/DeportedCount")
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 offset = Vector2(8, 8)

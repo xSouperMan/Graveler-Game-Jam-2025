@@ -20,6 +20,7 @@ public partial class Player : CharacterBody2D
 	[Export] public RichTextLabel Age;
 	[Export] public RichTextLabel ExpirationDate;
 	[Export] public InteractionUi InteractionUI;
+	[Export] public Label DeportedCountDisplay;
 
 	private bool _isMoving;
 	private Vector2 _startPos;
@@ -446,5 +447,11 @@ public partial class Player : CharacterBody2D
 			}
 		}
 		return null;
+	}
+
+	internal void inCreaseDeportedCount()
+	{
+		DeportedCount++;
+		DeportedCountDisplay.Text = "Deported Today: "+DeportedCount;
 	}
 }

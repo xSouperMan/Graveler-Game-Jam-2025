@@ -148,3 +148,5 @@ autowrap_mode = 3
 
 [node name="Timer" type="Timer" parent="Bubble"]
 wait_time = 2.0
+
+[node name="Deport" type="Timer" parent="."]

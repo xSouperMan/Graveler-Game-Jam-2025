@@ -4,6 +4,8 @@ using Godot;
 
 public partial class NPC : CharacterBody2D
 {
+	[Export] float DeportDelay = 2f;
+	private Timer DeportTimer;
 	enum InteractionState{Greet, Await, Finished}
 	private InteractionState state = InteractionState.Greet;
 	public NPCData Data { get; private set; }
@@ -22,9 +24,11 @@ public partial class NPC : CharacterBody2D
 		GD.Print(GlobalPosition);
 		dialogBubble = GetNode<Control>("Bubble");
 		//dialogBubble.Visible = false;
+		DeportTimer = GetNode<Timer>("Deport");
+		DeportTimer.Timeout += Deport;
 	}
 
-	public void Interact(Direction direction)
+    public void Interact(Direction direction)
 	{
 
 		switch(direction)
@@ -92,7 +96,7 @@ public partial class NPC : CharacterBody2D
 		HideBubble();
 		state = InteractionState.Finished;
 		ShowBubble(Data.ArrestResponse);
-		//TODO VERPISS DICH
+		DeportTimer.Start(DeportDelay);
 	}
 
 	public void PlayerNotArrest()
@@ -107,5 +111,20 @@ public partial class NPC : CharacterBody2D
 		HideBubble();
 		state = InteractionState.Finished;
 		ShowBubble(Data.MightComeBackResponse);
+    }
+
+    private void Deport()
+    {
+        var npcs = GetTree().GetNodesInGroup("NPC");
+
+		foreach (Node2D npc in npcs)
+		{
+			if(GlobalPosition.DistanceTo(npc.GlobalPosition) <= 1f)
+			{
+				npc.QueueFree();
+				QueueFree();
+				return;
+			}
+		}
     }
 }
