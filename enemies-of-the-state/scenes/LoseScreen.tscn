@@ -1,0 +1,33 @@
+[gd_scene load_steps=3 format=3 uid="uid://dj6x16vtunu4y"]
+
+[ext_resource type="Texture2D" uid="uid://dvohly05h1y80" path="res://assets/screens/Failed.png" id="1_5ma5d"]
+[ext_resource type="Script" uid="uid://cqpbqj78820tv" path="res://scripts/LoseScreen.cs" id="1_x3j6d"]
+
+[node name="Failed" type="Node2D"]
+script = ExtResource("1_x3j6d")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -56.72
+offset_right = 384.0
+offset_bottom = 319.28003
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("1_5ma5d")
+stretch_mode = 6

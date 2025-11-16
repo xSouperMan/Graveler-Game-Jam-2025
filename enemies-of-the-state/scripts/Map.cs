@@ -15,7 +15,7 @@ public partial class Map : Node2D
 		_dayTimer = GetNode<Timer>("DayTimer"); 
 		_timeLabel = GetNode<Label>("CanvasLayer/TimeLabel");
 		player = GetNode<Player>("Player");
-
+		_dayTimer.Timeout += _OnDayTimerTimeout;
 	}
 
 
@@ -38,7 +38,8 @@ public partial class Map : Node2D
 		
 		if(player.Quota > player.DeportedCount)
 		{
-			GD.Print("LOOOOOOOSER");
+			GetTree().ChangeSceneToFile("res://scenes/LoseScreen.tscn");
+			return;
 		}
 
 		GetTree().ChangeSceneToFile("res://scenes/tages_zusammenfassung.tscn");
